@@ -1,7 +1,7 @@
 # Define external switch name
 $ExternalSwitchName = "ExternalVirtualSwitch"
 
-function New-External-Switch {
+function Add-External-Switch {
 
     # If the switch does not exists then create it
     $ExternalSwitches = Get-VMSwitch -SwitchType External
@@ -29,7 +29,7 @@ function New-External-Switch {
 }
 
 Export-ModuleMember -Variable $ExternalSwitchName
-Export-ModuleMember -Function New-External-Switch
+Export-ModuleMember -Function Add-External-Switch
 
 
 
