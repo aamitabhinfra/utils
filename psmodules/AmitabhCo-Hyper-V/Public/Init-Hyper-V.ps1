@@ -28,8 +28,21 @@ function Add-External-Switch {
     }
 }
 
+function Remove-External-Switch {
+    Remove-VMSwitch $ExternalSwitches -Force
+}
+
+function Remove-External-Switchs {
+    $ExternalSwitches = Get-VMSwitch -SwitchType External
+    foreach($ExternalSwitch in $ExternalSwitches) {
+        Remove-VMSwitch $ExternalSwitch.Name -Force
+    }
+}
+
 Export-ModuleMember -Variable $ExternalSwitchName
 Export-ModuleMember -Function Add-External-Switch
+Export-ModuleMember -Function Remove-External-Switch
+Export-ModuleMember -Function Remove-External-Switchs
 
 
 
