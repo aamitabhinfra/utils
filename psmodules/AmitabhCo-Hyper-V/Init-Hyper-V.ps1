@@ -1,6 +1,6 @@
 function Create-External-Switch {
     $ExternalSwitches = Get-VMSwitch -SwitchType External
-    if ($ExternalSwitches -eq $null) {
+    if ($null -eq $ExternalSwitches) {
     
         # Identify the phusical Network adapter
         $NetAdapter = Get-NetAdapter -Physical
